@@ -3,6 +3,8 @@
 Welcome to the Comment Section App, a fullstack application that allows users to engage in conversations through a comment section component. 
 Additionally, the app features a contact page for user inquiries, an about page providing more information about the project, and a profile page displaying user details, statistics, and comment history.
 
+![Home Page](./Pictures%20And%20Videos/Main%20Page.png)
+
 ## Table of Contents
 - [Features](#features)
 - [Live Site](#live-site)
