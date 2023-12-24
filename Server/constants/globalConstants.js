@@ -11,11 +11,13 @@ const MAIN_ROUTES = {
     EMAIL : "/api/email"
 }
 const CLIENT_DEV_URL = `http://localhost:${process.env.CLIENT_DEV_PORT}`
+const CLIENT_PRODUCTION_URL = 'https://commentsection.onrender.com'
 
 
 
 module.exports = {
     APP_VARIABLES,
     MAIN_ROUTES,
-    CLIENT_DEV_URL
+    CLIENT_DEV_URL,
+    CLIENT_PRODUCTION_URL
 }

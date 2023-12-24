@@ -12,7 +12,7 @@ const socket = require('socket.io');
 const cookieParser = require('cookie-parser');
 const nodeMailer = require("nodemailer");
 
-const {APP_VARIABLES , MAIN_ROUTES , CLIENT_DEV_URL} = require("./constants/globalConstants")
+const {APP_VARIABLES , MAIN_ROUTES , CLIENT_DEV_URL , CLIENT_PRODUCTION_URL} = require("./constants/globalConstants")
 
 // Import Route Modules:
 const conversationsRoutes = require('./routes/conversations').router;
@@ -24,7 +24,7 @@ const emailRoutes = require("./routes/email").router;
 // Create Server & Socket:
 const app = express();
 const server = http.createServer(app);
-const io = socket(server, { cors: { origin: [CLIENT_DEV_URL] } });
+const io = socket(server, { cors: { origin: [CLIENT_PRODUCTION_URL] } });
 
 // Create NodeMailer Transport:
 const transporter = nodeMailer.createTransport({
@@ -34,7 +34,7 @@ const transporter = nodeMailer.createTransport({
 const mailOptions = { from: process.env.CONTACT_TEAM_EMAIL, to: process.env.CONTACT_TEAM_EMAIL };
 
 // Middleware Setup:
-app.use(cors({ origin: [CLIENT_DEV_URL], credentials: true }));
+app.use(cors({ origin: [CLIENT_PRODUCTION_URL], credentials: true }));
 app.use(express.json());
 app.use(cookieParser());
 
