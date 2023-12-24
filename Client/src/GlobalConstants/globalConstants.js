@@ -96,4 +96,4 @@ export const HTTP_STATUS_CODES = {
     NETWORK_AUTHENTICATION_REQUIRED: 511,
   };
   
-export const SERVER_DEV_URL = `http://commentsection-api.onrender.com`
+export const SERVER_DEV_URL = `https://commentsection-api.onrender.com`
