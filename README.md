@@ -1,4 +1,4 @@
-# Comment Section App
+# Comment Section App 🚀
 
 Welcome to the Comment Section App, a fullstack application that allows users to engage in conversations through a comment section component. 
 Additionally, the app features a contact page for user inquiries, an about page providing more information about the project, and a profile page displaying user details, statistics, and comment history.
@@ -11,36 +11,46 @@ Additionally, the app features a contact page for user inquiries, an about page 
 
 ## Features
 
-### Comment Section Page
+### Comment Section Page 💬
 - Users can engage in real-time conversations by posting comments and replies to each other.
 - Real-time updates enable users to see new comments and replies as they are posted.
 - Users can express their opinions by liking or disliking other posts within the comment section.
 - The comment section provides a dynamic and interactive user experience.
 
-### Contact Page
+![Comment Section Page](./Pictures%20And%20Videos/Comment%20Section%20Page.png)
+
+### Contact Page 📧
 - Allows users to submit inquiries and messages to the contact team for prompt assistance.
 - The contact form includes fields for name, email, subject, and a description, ensuring comprehensive user feedback.
 
-### Profile Page
+![Contact Page](./Pictures%20And%20Videos/Contact%20Page.png)
+
+### Profile Page 👤
 - Displays personalized user details, including username, avatar, and registration information.
 - Presents statistics such as the number of comments posted, liked posts, and overall user engagement.
 - Features a comment history section, showcasing the user's past interactions within the comment section.
 
-### About Page
+![Profile Page](./Pictures%20And%20Videos/Profile%20Page.png)
+
+### About Page ℹ️
 - Provides an in-depth overview of the project, its objectives, and the technologies used.
 
-### Design Support
+![About Page](./Pictures%20And%20Videos/About%20Page.png)
+
+### Design Support 📱💻
 - The website is designed to support a wide range of screens, including phones, tablets, laptops, and desktop computers.
 - Responsive design ensures a seamless and visually appealing experience across various devices and screen sizes.
 
-## Live Site
+![Design Support](./Pictures%20And%20Videos/Mobile%20View.png)
+
+## Live Site 🌐
 
 Check out the live version of the Comment Section App [here](https://commentsection.onrender.com).
 
 The app is hosted on [Render.com](https://render.com), a cloud platform that simplifies the deployment and scaling of web applications. 
 Render provides a hassle-free experience for hosting, managing, and scaling applications, allowing seamless deployment.
 
-## Technologies and Libraries Used
+## Technologies and Libraries Used 🛠️
 
 | Category | Technology/Library | Role | Logo |  |  |  |  |
 |---|---|---|---|---|---|---|---|
@@ -62,7 +72,7 @@ Render provides a hassle-free experience for hosting, managing, and scaling appl
 |  | Cypress | E2E Testing | ![Cypress Badge](https://img.shields.io/badge/-Cypress-17202C?style=flat-square&logo=cypress&logoColor=white) |  |  |  |  
 
 
-## Acknowledgements
+## Acknowledgements 🌟
 
 This project is an extended version of a [Frontend Mentor](https://www.frontendmentor.io/) challenge. 
 The original challenge can be found [here](https://www.frontendmentor.io/challenges/interactive-comments-section-iG1RugEG9).
