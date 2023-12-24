@@ -1,0 +1,34 @@
+@use "../../Util/colors" as *;
+
+.Invalid404Container{
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.error404{
+    font-size: 6rem;
+    letter-spacing: 1rem;
+
+    color: hsl(237, 34%, 32%);
+}
+
+.error404SadIcon{
+    width: 400px;
+}
+
+.errorTitle{
+    font-size: 3rem;
+
+    color: hsl(237, 34%, 32%);
+}
+
+.errorDescription{
+    font-size: 1.6rem;
+
+    color: $DarkBlue;
+}

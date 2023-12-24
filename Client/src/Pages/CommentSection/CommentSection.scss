@@ -1,0 +1,15 @@
+@use '../../Util/breakpoints' as *;
+
+.Wrapper{
+    max-width: 1250px;
+
+    position: relative;
+    margin-inline: auto;
+    padding-block: 1.5rem;
+
+
+    @include breakpoint(m){
+        margin-inline: 2rem;
+    }
+}
+

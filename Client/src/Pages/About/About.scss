@@ -1,0 +1,27 @@
+@use "../../Util/colors" as *;
+
+.AboutContainer{
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+.AboutItem{    
+    width: 100%;
+    background-color: var(--card-bg);
+    transition: background-color .75s ease-in-out;
+    padding: 2rem;
+    padding-right: 10%;
+    border-radius: 5px;
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    &__icon{
+        align-self: center;
+        width: 80px;
+    }
+}

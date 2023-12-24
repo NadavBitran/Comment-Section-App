@@ -1,0 +1,30 @@
+@use "../../../../Util/colors" as *;
+
+.Pagination{
+    ul{
+        display: flex;
+        gap: 1rem;
+
+        li{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            padding: .5rem;
+            width: 30px;
+            height: 30px;
+
+            border-radius: 50%;
+
+            cursor: pointer;
+
+            a{
+                font-weight: 500;
+            }
+        }
+    }
+}
+.active{
+    background-color: var(--title-clr);
+    color: white;
+}

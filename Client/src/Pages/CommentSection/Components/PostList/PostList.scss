@@ -1,0 +1,79 @@
+@use "../../../../Util/breakpoints" as *;
+@use "../../../../Util/colors" as *;
+
+.PostList{
+    width: 100%;
+
+    overflow: auto;
+    position: relative;
+
+    display: grid;
+    gap: 2rem;
+
+    margin-bottom: 1rem;
+
+    max-height: calc(100vh - 115px - 6rem - 70px);
+    @include breakpoint(s){
+        max-height: calc(100vh - 150px - 6rem - 70px);
+    }
+
+    
+    &::-webkit-scrollbar{
+        width: .5rem;
+        &-thumb{
+            background-color: $Moderateblue;
+        }
+    }
+}
+.skeleton-load-postContainer{
+  height: 9rem;
+}
+.skeleton-load{
+    width: 100%;
+    height: 100%; 
+    background: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.8) 25%,   
+      rgba(240, 240, 240, 1) 50%,    
+      rgba(255, 255, 255, 0.8) 75%   
+    );
+    background-size: 200% 100%;
+    margin-bottom: 1rem;
+    animation: waveAnimation 3s infinite linear;
+    opacity: .7;
+}
+
+@keyframes waveAnimation{
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+.post-content-load{
+  margin-inline: auto;
+}
+.moveDown{
+  position: sticky;
+  bottom: 0;
+  left: calc(100% - 3rem);
+
+  width: 40px;
+  height: 40px;
+  margin-top: -40px;
+  border-radius: 50%;
+  background-color: $Moderateblue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  transition: opacity .75s ease-in-out;
+  &:hover{
+    opacity: .7;
+  }
+  &__image{
+    width: 30px;
+    height: 30px;
+  }
+}

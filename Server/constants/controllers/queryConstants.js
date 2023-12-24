@@ -1,0 +1,15 @@
+// QUERY CONSTANTS
+const PAGE_DEFAULT = 1
+const OFFSET_DEFAULT = 0
+const LIMIT_DEFAULT = 10
+const SEARCH_DEFAULT = ""
+const SORT_DEFAULT = "createdAt"
+
+
+module.exports = {
+    PAGE_DEFAULT,
+    OFFSET_DEFAULT,
+    LIMIT_DEFAULT,
+    SEARCH_DEFAULT,
+    SORT_DEFAULT
+}

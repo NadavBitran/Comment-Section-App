@@ -1,0 +1,10 @@
+{
+        "_id": "653ed878895f9b47cfa980e2",
+        "usertype" : "regular" , 
+        "image": "./images/avatars/image-juliusomo.png" ,
+        "username": "juliusomo",
+        "password": "juliusomo123",
+        "firstname": "juliu",
+        "lastname": "somo",
+        "email": "juliusomo123@gmail.com"
+}

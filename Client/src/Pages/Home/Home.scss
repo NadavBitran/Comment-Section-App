@@ -1,0 +1,59 @@
+@use "../../Util/colors" as *;
+
+.home{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 100vh;
+
+    background-image: url("/images/home-bg.png");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    color: white;
+
+    &__title{
+        font-size: max(1.6rem , 3vw);
+        font-weight: 400;
+
+    }
+    &__credentials{
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        font-size: max(1.5rem , .75vw);
+        font-weight: 400;
+    }
+}
+.buttons{   
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 1rem;
+
+    margin-top: 1rem;
+
+    .link {
+        justify-self: center;
+        align-self: center;
+    }
+
+    button{
+
+        width: max(4rem , 15vw);
+        height: max(2rem , 2.6vw);
+
+        background-color: hsl(238, 51%, 51%);
+        border: none;
+        font-size: max(.7rem , .75vw);
+        color: white;
+        text-transform: uppercase;
+
+        transition: background-color 0.25s ease-in-out;
+
+        &:hover{
+            background-color: hsla(238, 51%, 51%, 0.61);
+            cursor: pointer;
+        }
+    }
+}

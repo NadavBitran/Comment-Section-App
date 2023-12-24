@@ -1,0 +1,31 @@
+@use "../../../../Util/colors" as *;
+
+
+.AboutItem__options{
+    width: 25%;
+    padding: .5rem;
+    border: 1px solid hsl(223, 19%, 93%);
+}
+
+.AboutItem__answerTitle{
+    color: $Moderateblue;
+}
+
+.AboutItem__answerList{
+    padding-left: 1rem;
+    display: flex;
+    flex-direction: column;
+
+    li{
+        font-weight: 400;
+    }
+}
+.AboutItem__answer{
+    display: flex;
+    gap: .5rem;
+    align-items: center;
+}
+
+.AboutItem__badge{
+    width: 90px;
+}

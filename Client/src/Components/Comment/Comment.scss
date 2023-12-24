@@ -1,0 +1,227 @@
+@use "../../Util/colors" as *;
+@use "../../Util/breakpoints" as *;
+
+.Post{
+    position: relative;
+
+    min-height: 9rem;
+    width: 100%;
+
+    border-radius: 5px;
+    
+    padding-block: 1.75rem;
+    padding-inline: 1.5rem;
+
+    background-color: var(--card-bg);
+    transition: background-color .75s ease-in-out;
+
+    display: flex;
+    flex-direction: row;
+
+    
+    &__Text{
+        color: $GrayishBlue;
+
+        line-height: 1.3rem;
+
+        padding-right: 5%;
+        margin: 1rem;
+    }
+}
+
+.Post__Upvotes{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    gap: .5rem;
+
+    height: 5.5rem;
+    width: 2rem;
+
+    border-radius: 5px;
+
+    background-color: $VeryLightGray;
+
+
+    position: absolute;
+
+    *{
+        font-weight: bold;
+    }
+
+    &--up , &--down{
+        cursor: pointer;
+        color: $LightGrayishBlue;
+
+        transition: color 0.25s ease-in-out;
+        &:hover{
+            color: $Moderateblue;
+        }
+    }
+    &--count{
+        color: $Moderateblue;
+    }
+}
+
+.Post__Voted{
+    color: $Moderateblue !important;
+}
+
+
+.Post__Details{
+    width: 100%;
+
+    margin-left: 2.5rem;
+}
+
+.Post__Bar{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+
+    margin-left: 1rem;
+
+    &--image{
+        border-radius: 50%;
+
+        height: 30px;
+        width: 30px;
+
+    }
+    &--tag{
+        
+
+        padding-block: 2px;
+        padding-inline: 6px;
+        border-radius: 3px;
+        text-transform: uppercase;
+        color: $White;
+        font-size: .75rem;
+
+
+        &.you{
+            background-color: $Moderateblue;
+        }
+        &.mod{
+            background-color: rgb(46, 184, 46);
+        }
+    }
+
+    &--username{
+        &:hover{
+            cursor: pointer;
+        }
+    }
+}
+
+
+.Post__Icons{
+    display: flex;
+    flex-direction: row;
+    gap: 1.5rem;
+
+    position: absolute;
+    top: 1.75rem;
+    right: 1.5rem;
+
+    
+    height: 2rem;
+}
+
+.Post__Reply , .Post__Delete , .Post__Edit{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: .5rem;
+
+
+    &--Image{
+        width: 16px;
+        height: 16px;
+    }
+
+    transition: opacity 0.75s ease-in-out;
+    &:hover{
+        cursor: pointer;
+        opacity: 0.75;
+    }
+}
+
+.Post__Reply , .Post__Edit{
+    &--Text{
+        color: $Moderateblue;
+    }
+}
+
+.Post__Delete{
+    &--Text{
+        color: $SoftRed;
+    }
+}
+
+.Post__Tag{
+    color: $Moderateblue;
+}
+
+
+// RESPONSIVE DESIGN:
+
+// STRUCTURAL CHANGES
+@include breakpoint(s){
+    .Post__Bar{
+        gap: 0.75rem;
+    }
+    .Post__Icons{
+        top: initial;
+        bottom: 1.75rem;
+        gap: 1rem;
+    }
+    .Post__Reply , .Post__Delete , .Post__Edit{
+        &--Text{
+            font-size: 0.85rem;
+        }
+        &--Image{
+            height: 14px;
+            width: 14px;
+        }
+    }
+    .Post__Details{
+        margin-left: 0;
+        margin-bottom: 1.75rem;
+    }
+    .Post__Upvotes{
+        top: initial;
+        bottom: 1.75rem;
+
+        flex-direction: row;
+        justify-content: space-evenly;
+
+        width: 5rem;
+        height: 1.75rem;
+    }
+    .Post__Text{
+        padding-right: 1rem;
+    }
+}
+
+// TYPOGRAPHY CHANGES
+.Post__Text{
+    font-size: 0.75rem;
+    font-size: clamp(0.75rem, 0.6474358974358975rem + 0.5128205128205128vw, 1rem);
+    line-height: clamp(1.2rem, 0.39vw + 1.132rem, 1.4rem);
+}
+
+.Post__Bar--username{
+    font-size: 0.75rem;
+    font-size: clamp(0.75rem, 0.5961538461538461rem + 0.7692307692307693vw, 1.125rem);
+    line-height: clamp(1.2rem, 0.732vw + 1.072rem, 1.575rem);
+}
+
+.Post__Bar--createdAt{
+    font-size: 0.625rem;
+    font-size: clamp(0.625rem, 0.47115384615384615rem + 0.7692307692307693vw, 1rem);
+}
+

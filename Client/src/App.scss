@@ -1,0 +1,12 @@
+@use "./Util/colors" as *;
+
+.App{
+    width: 100%;
+    min-height: 100vh;
+
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+
+
+}

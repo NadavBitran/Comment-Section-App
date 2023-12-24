@@ -1,0 +1,19 @@
+@use "../../../../Util/colors" as *;
+@use "../../../../Util/breakpoints" as *;
+
+.ReplyList{
+    display: grid;
+    gap: 1.5rem;
+
+
+    margin-left: 7.5%;
+    padding-left: 7.5%;
+
+
+    border-left: 2px solid $LightGray;
+
+    @include breakpoint(s){
+        margin-left: 0;
+        padding-left: 2.5%;
+    }
+}

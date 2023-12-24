@@ -1,0 +1,146 @@
+@use "../../Util/colors" as *;
+
+.Profile__card{
+    background-color: var(--card-bg);
+    transition: background-color .75s ease-in-out;
+    width: 100%;
+    padding: 1.5rem;
+    border-radius: 5px;
+
+    height: 55rem;
+}
+
+.Profile__aside{
+    float: left;
+    min-height: 100%;
+    padding-right: 1.5rem;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+.Profile{
+    &__picture{
+        width: 150px;
+        border-radius: 50%;
+    }
+    &__navbar{
+        border: 1px solid hsl(223, 19%, 93%);
+        width: 100%;
+        ul{
+            display: flex;
+            flex-direction: column;
+            gap: 0rem;
+            li{
+                width: 100%;
+                border-bottom: 1px solid hsl(223, 19%, 93%);
+
+                button{
+                    width: 100%;
+                }
+
+                padding-block: .25rem;
+            }
+        }
+    }
+    &__error-msg{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50% , -50%);
+    }
+}
+
+.Profile__detailsgrid{
+    margin-top: 1.25rem;
+    display: grid;
+    grid-template-areas: "username email"
+                         "firstname lastname";
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1.5rem;
+    padding-block-end: 2.5rem;
+}
+.Profile__options{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 1rem;
+}
+.Profile__container{
+    text-align: center;
+
+    h2{
+        font-size: 1rem;
+        margin-bottom: .5rem;
+    }
+    p{
+        font-size: 1.25rem;
+        font-weight: 400;
+    }
+}
+.Profile__username{
+    grid-area: username;
+}
+.Profile__firstname{
+    grid-area: firstname;
+}
+.Profile__lastname{
+    grid-area: lastname;
+}
+.Profile__email{
+    grid-area: email;
+}
+.Profile__posts , .Profile__replies{
+    height: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+}
+.Profile__posts-grid , .Profile__replies-grid{
+    display: grid;
+    gap: 1rem;
+    width: 100%;
+
+    overflow: auto;
+    height: 85%;
+
+    
+    &::-webkit-scrollbar{
+        width: .5rem;
+        &-thumb{
+            background-color: $Moderateblue;
+        }
+    }
+}
+.Profile__statistics{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    padding-block-end: 2.5rem;
+}
+.skeleton-load-profileContainer{
+    border-radius: 5px;
+
+    height: 50rem;
+    width: 100%;
+}
+.profile-content-load{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50% , -50%);
+}
+.Profile__activity{
+    margin-left: calc(3.5rem + 175px);
+    
+    h2{
+        text-align: center;
+        font-size: 1rem;
+        margin-bottom: .5rem;
+    }
+}
