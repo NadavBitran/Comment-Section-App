@@ -9,7 +9,6 @@ const {User} = require("../models/users");
 const { Conversation } = require('../models/conversations');
 const conversations = require('./conversations');
 
-
 const HTTP_STATUS_CODES = require("../constants/controllers/httpstatusConstants")
 const {REQ_SUCC , ERR_REQ_WENT_WRONG , ERR_REQ_INV_CRED , ERR_REQ_USER_NOT_EXIST , ERR_REQ_USER_ALR_EXIST , ERR_REQ_USERNAME_ALR_EXIST} = require("../constants/controllers/messageConstants")
 const {ACCESS_TOKEN_LENGTH , REFRESH_TOKEN_LENGTH , REFRESH_TOKEN_MAX_AGE , REFRESH_TOKEN_JWT_COOKIE_NAME , REFRESH_TOKEN_EXPIRED_AGE} = require("../constants/tokens/tokenConstants")
@@ -105,6 +104,7 @@ const signup = async(req , res) => {
 
         if(existingUser) return res.status(HTTP_STATUS_CODES.BAD_REQUEST).json({message: ERR_REQ_USER_ALR_EXIST})
 
+
         const existingUsername = await User.findOne({username : username})
 
         if(existingUsername) return res.status(HTTP_STATUS_CODES.BAD_REQUEST).json({message : ERR_REQ_USERNAME_ALR_EXIST})
@@ -121,9 +121,9 @@ const signup = async(req , res) => {
                                             username : username ,
                                             image : image
                                         })
-        const accessToken = jwt.sign({email : newUser.email , key: newUser.key , id: newUser._id , usertype : existingUser.usertype} , process.env.JWT_SECRET , {expiresIn: ACCESS_TOKEN_LENGTH})
+        const accessToken = jwt.sign({email : newUser.email , key: newUser.key , id: newUser._id , usertype : newUser.usertype} , process.env.JWT_SECRET , {expiresIn: ACCESS_TOKEN_LENGTH})
 
-        const refreshToken = jwt.sign({email : newUser.email , key: newUser.key , id: newUser._id , usertype : existingUser.usertype} , process.env.JWT_SECRET , {expiresIn: REFRESH_TOKEN_LENGTH})
+        const refreshToken = jwt.sign({email : newUser.email , key: newUser.key , id: newUser._id , usertype : newUser.usertype} , process.env.JWT_SECRET , {expiresIn: REFRESH_TOKEN_LENGTH})
 
         res.cookie(REFRESH_TOKEN_JWT_COOKIE_NAME , refreshToken , {
             httpOnly : true , 

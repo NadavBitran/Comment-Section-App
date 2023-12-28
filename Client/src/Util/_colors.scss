@@ -1,3 +1,5 @@
+@use './breakpoints' as *;
+
 $DarkPurple : hsl(237, 34%, 32%);
 $Moderateblue: hsl(238, 40%, 52%);
 $SoftRed: hsl(358, 79%, 66%);
@@ -32,7 +34,7 @@ $black: #929292;
     background-color: var(--app-bg);
     transition: background-color .75s ease-in-out;
 }
-h2 , h3 , .title{
+h1 , h2 , h3 , .title{
     color: var(--title-clr);
 }
 button{
@@ -51,6 +53,10 @@ button{
     &:hover{
         opacity: 0.75;
         cursor: pointer;
+    }
+    @include breakpoint(s){
+        width: 6rem;
+        height: 2.75rem;
     }
 }
 .card , header{

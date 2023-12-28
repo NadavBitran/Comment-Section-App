@@ -1,6 +1,6 @@
 import { useState , useEffect , useContext, createContext } from "react";
 
-import { APP_THEME } from "../GlobalConstants/globalConstants";
+import { APP_THEME , LOCAL_STORAGE} from "../GlobalConstants/globalConstants";
 
 import iconMoon from "/images/icon-moon.svg";
 import iconSun from "/images/icon-sun.svg";
@@ -23,7 +23,16 @@ export function useThemeSource(){
                 setToDark()
             }
         }
-        detectCurrentBrowsersPreferedScheme()
+
+        const currentUserPreferedScheme = localStorage.getItem(LOCAL_STORAGE.THEME)
+
+        if(currentUserPreferedScheme){
+            currentUserPreferedScheme === APP_THEME.DARK && setToLight()
+            currentUserPreferedScheme === APP_THEME.LIGHT && setToDark()
+        }
+        else{
+            detectCurrentBrowsersPreferedScheme()
+        }
     } , [] )
 
     const changeTheme = () => {
@@ -38,11 +47,13 @@ export function useThemeSource(){
     }
 
     const setToDark = () => {
+        localStorage.setItem(LOCAL_STORAGE.THEME , APP_THEME.DARK)
         setTheme(APP_THEME.LIGHT)
         setThemeIcon(iconMoon)
 
     }
     const setToLight = () => {
+        localStorage.setItem(LOCAL_STORAGE.THEME , APP_THEME.LIGHT)
         setTheme(APP_THEME.DARK)
         setThemeIcon(iconSun)
     }

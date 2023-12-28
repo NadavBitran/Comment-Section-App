@@ -2,7 +2,7 @@ import { render , screen , waitFor} from "@testing-library/react";
 import { beforeEach, describe, expect , vi } from "vitest";
 import userEvent, { UserEvent } from "@testing-library/user-event";
 
-import Filter from "../filter";
+import Filter from "../Filter";
 
 const sortChangeMock = vi.fn()
 const searchChangeMock = vi.fn()

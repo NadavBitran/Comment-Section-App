@@ -181,10 +181,12 @@ function Contact(){
                     </svg>}</button>
                     </div>
                 </form> :
-                <div className={"SuccessForm"}>
-                    <h2 className={"SuccessForm__title"}>Thank you!</h2>
-                    <img className={"SuccessForm__image"} src={ConfettiForm}/>
-                    <p className={"SuccessForm__desc"}>You will get a response soon.</p></div>}
+                    <InfoCard 
+                        title={"Thank You!"}
+                        titleImage={ConfettiForm}
+                        desc={["You will get a response soon."]}
+                        additionalClassName={"SuccessForm"}
+                    />}
             </div>
         </div>
     )

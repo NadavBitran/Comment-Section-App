@@ -171,6 +171,7 @@
 
 // STRUCTURAL CHANGES
 @include breakpoint(s){
+    
     .Post__Bar{
         gap: 0.75rem;
     }
@@ -206,6 +207,26 @@
         padding-right: 1rem;
     }
 }
+@include breakpoint(xs){
+    .Post{
+        padding-inline: 1.25rem;
+    }
+}
+@include breakpoint("2xs"){
+    .Post{
+        padding-inline: .5rem;
+
+        &__Text{
+            margin-inline: .5rem;
+            margin-block: 1.25rem;
+        }
+    }
+    .Post__Bar--tag{
+        position: absolute;
+        transform: translateY(115%);
+    }
+}
+
 
 // TYPOGRAPHY CHANGES
 .Post__Text{
@@ -223,5 +244,10 @@
 .Post__Bar--createdAt{
     font-size: 0.625rem;
     font-size: clamp(0.625rem, 0.47115384615384615rem + 0.7692307692307693vw, 1rem);
+}
+
+.Post__Bar--tag{
+    font-size: 0.55rem;
+    font-size: clamp(0.55rem, 0.12931034482758622rem + 0.6896551724137931vw, 0.75rem);
 }
 

@@ -1,3 +1,5 @@
+@use "../../../../Util/breakpoints" as *;
+
 .Filter{
     width: 100%;
     display: flex;
@@ -27,4 +29,16 @@
     padding: .25rem;
 
     margin-left: 2rem;
+}
+
+@include breakpoint(s){
+    .Search{
+        margin: 0;
+    }
+}
+
+@include breakpoint('2xs'){
+    .Sort{
+        display: none;
+    }
 }

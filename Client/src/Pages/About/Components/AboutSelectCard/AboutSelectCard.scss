@@ -1,10 +1,20 @@
 @use "../../../../Util/colors" as *;
+@use "../../../../Util/breakpoints" as *;
 
 
 .AboutItem__options{
-    width: 25%;
+    width: 272px;
     padding: .5rem;
     border: 1px solid hsl(223, 19%, 93%);
+
+    @include breakpoint(xs){
+        align-self: center;
+
+        font-size: .75rem;
+    }
+    @include breakpoint('3xs'){
+        width: 100%;
+    }
 }
 
 .AboutItem__answerTitle{
@@ -24,6 +34,7 @@
     display: flex;
     gap: .5rem;
     align-items: center;
+    text-align: start;
 }
 
 .AboutItem__badge{

@@ -7,9 +7,14 @@
     margin-inline: auto;
     padding-block: 1.5rem;
 
+    min-height: calc(100vh - 70px);
+
 
     @include breakpoint(m){
         margin-inline: 2rem;
+    }
+    @include breakpoint("2xs"){
+        margin-inline: .75rem;
     }
 }
 

@@ -1,6 +1,7 @@
 export const LOCAL_STORAGE = {
     ACCESS_TOKEN : 'accesstoken',
-    USER : 'user'
+    USER : 'user',
+    THEME : 'theme'
 }
 export const MAIN_ROUTES = {
     HOME : "/",
@@ -96,4 +97,4 @@ export const HTTP_STATUS_CODES = {
     NETWORK_AUTHENTICATION_REQUIRED: 511,
   };
   
-export const SERVER_DEV_URL = `https://commentsection-api.onrender.com`
+export const SERVER_DEV_URL = `http://localhost:3001`

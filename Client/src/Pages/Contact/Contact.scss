@@ -1,4 +1,5 @@
 @use "../../Util/colors" as *;
+@use "../../Util/breakpoints" as *;
 
 .ContactContainer{
     position: relative;
@@ -6,6 +7,10 @@
     display: flex;
     flex-direction: row;
     align-items: flex-start;
+
+    @include breakpoint(s){
+        flex-direction: column;
+    }
 }
 .ContactItems{
     margin-top: 1rem;
@@ -13,6 +18,10 @@
     gap: 2rem;
 
     width: 50%;
+
+    @include breakpoint(s){
+        width: 100%;
+    }
 }
 
 .ContactItem{
@@ -44,6 +53,10 @@
 
         margin-top: .7rem;
     }
+
+    @include breakpoint(s){
+        width: 100%;
+    }
 }
 
 .ContactForm{
@@ -64,6 +77,16 @@
     h2{
         text-align: center;
         color: var(--title-clr);
+    }
+
+    @include breakpoint(s){
+        position: relative;
+        top: 0;
+        transform: translateY(0);
+        width: 100%;
+    }
+    @include breakpoint(xs){
+        padding: 1rem;
     }
 
 }
@@ -115,9 +138,6 @@
         justify-self: flex-start;
         align-self: flex-end;
 
-        height: 3rem;
-        width: 6.5rem;
-
         font-size: 1rem;
         text-transform: uppercase;
         color: $White;
@@ -136,6 +156,24 @@
         flex-direction: column;
         gap: .5rem;
     }
+
+    @include breakpoint(xs){
+        grid-template-areas: "firstname"
+                              "lastname"
+                              "subject"
+                              "email"
+                              "desc"
+                              "file"
+                              "errorLbl"
+                              "button";
+        grid-template-columns: 1fr;
+    }
+    @include breakpoint('2xs'){
+        &__file{
+            width: 200px;
+        }
+    }
+
 }
 .SuccessForm{
     margin-top: 1rem;
@@ -164,6 +202,13 @@
     }
     &__desc{
         margin-top: .7rem;
+    }
+
+    @include breakpoint(s){
+        position: relative;
+        top: 0;
+        transform: translateY(0);
+        width: 100%;
     }
 }
 .errorLabelContact{

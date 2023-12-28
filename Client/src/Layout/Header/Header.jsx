@@ -49,13 +49,16 @@ function Header(){
                     {user && location.pathname!==MAIN_ROUTES.COMMENT_SECTION && <Link to={MAIN_ROUTES.COMMENT_SECTION} onClick={handleHamburgerMenuClose}><h3>Comment Section</h3></Link>}
                     {location.pathname!==MAIN_ROUTES.CONTACT && <Link to={MAIN_ROUTES.CONTACT} onClick={handleHamburgerMenuClose}><h3>Contact</h3></Link>}
                     {location.pathname!==MAIN_ROUTES.ABOUT && <Link to={MAIN_ROUTES.ABOUT} onClick={handleHamburgerMenuClose}><h3>About</h3></Link>}
+                    {user && location.pathname!==MAIN_ROUTES.PROFILE.replace(":id" , user._id) && <Link to={MAIN_ROUTES.PROFILE.replace(":id" , user._id)} onClick={handleHamburgerMenuClose}><h3>My Profile</h3></Link>}
+                    {user && <h3 onClick={() => {signoutUser(); navigate(MAIN_ROUTES.HOME)}}>Logout</h3>}
+                    {!user && <Link to="/login" onClick={handleHamburgerMenuClose}><h3>Login</h3></Link>}
                 </div>
             </div>
 
         <div className={"barDetails"}>
             <div className={"themeDetails"} onClick={HandleThemeChange}>
-                <h3 className={"themeDetails__title"}>{theme === APP_THEME.DARK ? APP_THEME.LIGHT : APP_THEME.DARK}</h3>
                 <img className={"themeDetails__image"} src={themeIcon}/>
+                <h3 className={"themeDetails__title"}>{theme === APP_THEME.DARK ? APP_THEME.LIGHT : APP_THEME.DARK}</h3>
             </div>
             {user ? <><div className={"userDetails"} onClick={() => {navigate(MAIN_ROUTES.PROFILE.replace(":id" , user._id))}}>
                 <img className={"userImage"} src={user.image}/>

@@ -24,7 +24,7 @@ const emailRoutes = require("./routes/email").router;
 // Create Server & Socket:
 const app = express();
 const server = http.createServer(app);
-const io = socket(server, { cors: { origin: [CLIENT_PRODUCTION_URL] } });
+const io = socket(server, { cors: { origin: [CLIENT_DEV_URL] } });
 
 // Create NodeMailer Transport:
 const transporter = nodeMailer.createTransport({
@@ -34,7 +34,7 @@ const transporter = nodeMailer.createTransport({
 const mailOptions = { from: process.env.CONTACT_TEAM_EMAIL, to: process.env.CONTACT_TEAM_EMAIL };
 
 // Middleware Setup:
-app.use(cors({ origin: [CLIENT_PRODUCTION_URL], credentials: true }));
+app.use(cors({ origin: [CLIENT_DEV_URL], credentials: true }));
 app.use(express.json());
 app.use(cookieParser());
 

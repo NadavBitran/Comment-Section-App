@@ -169,8 +169,8 @@ describe("Profile Render" , () => {
                 expect(skeletonLoad).toBeInTheDocument()
 
                 const analysisStats = await screen.findByText("Mocked ActivityChart")
+                const profileInfo_username = await screen.findAllByText(TEST_USER.username)
                 const profileInfo = {
-                    username : await screen.findByText(TEST_USER.username),
                     firstname : await screen.findByText(TEST_USER.firstname),
                     lastname : await screen.findByText(TEST_USER.lastname),
                     email : await screen.findByText(TEST_USER.email),
@@ -179,6 +179,8 @@ describe("Profile Render" , () => {
                 }
 
                 expect(analysisStats).toBeInTheDocument()
+
+                expect(profileInfo_username).toHaveLength(2)
 
                 Object.values(profileInfo).forEach((element) => {
                     expect(element).toBeInTheDocument();

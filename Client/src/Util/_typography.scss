@@ -1,0 +1,22 @@
+h3{
+    font-size: 0.9rem;
+    font-size: clamp(0.9rem, 0.8155172413793104rem + 0.48275862068965514vw, 1.25rem);
+}
+h2{
+    font-size: 1.15rem;
+    font-size: clamp(1.15rem, 1.0499999999999998rem + 0.5000000000000001vw, 1.5rem);
+}
+h1{
+    font-size: 1.25rem;
+    font-size: clamp(1.25rem, 1.1293103448275863rem + 0.6896551724137931vw, 1.75rem);
+}
+p , label , li{
+    font-size: 0.9rem;
+    font-size: clamp(0.9rem, 0.8714285714285714rem + 0.14285714285714282vw, 1rem);
+
+    line-height: clamp(1.125rem, 1rem + 0.625vw, 1.5625rem);
+}
+input::placeholder{
+    font-size: 0.7rem;
+    font-size: clamp(0.7rem, 0.6799999999999999rem + 0.10000000000000009vw, 0.8rem);
+}

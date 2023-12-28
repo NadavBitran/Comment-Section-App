@@ -231,7 +231,8 @@ function Login(){
 
 
     return (
-                <form className={"login"} onSubmit={handleSubmit}>
+        <div className={"Wrapper"}>
+                            <form className={"login"} onSubmit={handleSubmit}>
                         <h3 className = {"login__title"} data-testid={"login__title"}>{loginMethod===LOGIN_METHOD.SIGNIN ? 'Sign In' : 'Sign Up'}</h3>
                         {loginMethod === LOGIN_METHOD.SIGNUP && (<>
                         <input type="text" placeholder={"First Name *: max"} className={"firstName"} name={"firstName"} ref={firstNameRef} />
@@ -265,6 +266,7 @@ function Login(){
                         <p className = {"login__change"}>Don't have an account? <a data-testid={"switch-signUp"} onClick={() => {resetErrorSigns(); setLoginMethod(LOGIN_METHOD.SIGNUP)}}>Sign Up</a></p> :
                         <p className = {"login__change"}>Already have an account? <a data-testid={"switch-signIn"} onClick={() => {resetErrorSigns(); setLoginMethod(LOGIN_METHOD.SIGNIN)}}>Sign In</a></p>}
                 </form>
+        </div>
     )
 }
 

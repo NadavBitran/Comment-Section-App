@@ -4,6 +4,8 @@ import { createContext , useContext , useState , useCallback , useEffect } from 
 import { postSigninUser , postSignupUser} from "../Api/post";
 import { fetchSignOutUser } from '../Api/get';
 
+import defaultAvatarIcon from "/images/defaultUserAvatar.svg";
+
 import { LOCAL_STORAGE } from '../GlobalConstants/globalConstants';
 
 // -------------------
@@ -43,14 +45,13 @@ function useUserSource(){
         try{
             const response = await postSignupUser(newUser)
             if(response.status === 200) {
-                localStorage.setItem(LOCAL_STORAGE.USER , JSON.stringify(response.data.result))
-                localStorage.setItem(LOCAL_STORAGE.ACCESS_TOKEN , JSON.stringify(response.data.accessToken))
-                setUser(response.data.result)
+                setResults(response.data)
                 return null
             }
             else return response.response.data.message
         }
         catch(error){
+            console.log(error.message)
             return "Something Went Wrong"
         }
     } , [])
@@ -62,9 +63,7 @@ function useUserSource(){
 
             if(response.status === 200)
             {
-                localStorage.setItem(LOCAL_STORAGE.USER , JSON.stringify(response.data.result))
-                localStorage.setItem(LOCAL_STORAGE.ACCESS_TOKEN , JSON.stringify(response.data.accessToken))
-                setUser(response.data.result)
+                setResults(response.data)
                 return null
             }
             else return response.response.data.message
@@ -74,6 +73,14 @@ function useUserSource(){
         }
     } , [])
 
+    const setResults = (data) => {
+        localStorage.setItem(LOCAL_STORAGE.USER , JSON.stringify(data.result))
+        localStorage.setItem(LOCAL_STORAGE.ACCESS_TOKEN , JSON.stringify(data.accessToken))
+        if(!data.result.image){
+            setUser({...data.result , image : defaultAvatarIcon})
+        }
+        else setUser(data.result)
+    }
 
 
     return {user: user ,

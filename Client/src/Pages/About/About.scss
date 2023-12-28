@@ -1,4 +1,5 @@
 @use "../../Util/colors" as *;
+@use "../../Util/breakpoints" as *;
 
 .AboutContainer{
     width: 100%;
@@ -23,5 +24,19 @@
     &__icon{
         align-self: center;
         width: 80px;
+
+        @include breakpoint(xs){
+            width: 65px;
+        }
+        @include breakpoint('2xs'){
+            width: 55px;
+        }
+        @include breakpoint('3xs'){
+            width: 45px;
+        }
+    }
+
+    @include breakpoint(xs){
+        padding: 1rem;
     }
 }

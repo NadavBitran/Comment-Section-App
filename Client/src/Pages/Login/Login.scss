@@ -1,13 +1,15 @@
 @use "../../Util/colors" as *;
-
+@use "../../Util/breakpoints" as *;
 
 
 .login{
     position: absolute;
-    top: 50%;
+
+    width: 25rem;
+
+    top: 45%;
     left: 50%;
-    transform: translate(-50% , -50%);
-    width: 25%;
+    transform: translate(-50%, -50%);
 
     display: grid;  
     grid-template-columns: 1fr;
@@ -18,6 +20,16 @@
 
     padding: 1rem;
     padding-block: 1.5rem;
+
+    @include breakpoint('2xs'){
+        width: 100%;
+        min-width: auto;
+
+        
+        input[type='file']{
+            max-width: 100px;
+        }
+    }
 
     input , button{
         padding: .5rem;
@@ -35,6 +47,8 @@
         &:focus{
             border-color: $LightGrayishBlue;
         }
+
+
     }
 
     button{

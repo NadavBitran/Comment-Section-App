@@ -2,6 +2,8 @@ import { useState } from "react"
 import { useUser } from "./useUser"
 import moment from 'moment'
 
+import defaultAvatarIcon from "/images/defaultUserAvatar.svg"
+
 
 import { fetchUserConversations , fetchUserReplies , fetchUser } from "../Api/get"
 
@@ -25,8 +27,12 @@ export function useProfile(id){
 
         try{
             let response = await fetchUser(id)
+
+            if(!response.data.user.image){
+                setProfileUser({...response.data.user , image : defaultAvatarIcon})
+            }
+            else setProfileUser(response.data.user)
             
-            setProfileUser(response.data.user)
             setProfileUserPostsLength(response.data.userPostsLength)
             setProfileUserPostsDates(response.data.userPostsDates)
             setProfileUserRepliesLength(response.data.userRepliesLength)

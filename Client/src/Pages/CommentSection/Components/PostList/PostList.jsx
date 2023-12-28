@@ -105,7 +105,9 @@ function PostList() {
     return (
       <div className={'PostList'}>
         {Array.from({ length: 4 }, (_, index) => (
-          <div className={"skeleton-load-postContainer"} key={index} >
+          <div className={"skeleton-load-postContainer"}
+               data-cy={"skeleton-load-postContainer"} 
+               key={index} >
               <div className={'skeleton-load'}></div>
           </div>
         ))}

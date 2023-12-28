@@ -22,6 +22,7 @@ const generateFakeUser = () => ({
     const user = test_user || generateFakeUser();
     const likes = Array.from({ length: Math.floor(Math.random() * 10) }, () => uuidv4())
     const dislikes = Array.from({ length: Math.floor(Math.random() * 5) }, () => uuidv4())
+    const replies_length = Array.from({length : Math.floor((Math.random() * 4) + 1)})
     return {
       type: COMMENT_TYPE.POST,
       converationId: uuidv4(),
@@ -36,6 +37,7 @@ const generateFakeUser = () => ({
         image: user.image,
         _id: user._id,
       },
+      replies : Array.from({ length : replies_length } , generateFakeReply)
     };
   };
 

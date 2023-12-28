@@ -1,4 +1,5 @@
 @use "../../Util/colors" as *;
+@use "../../Util/breakpoints" as *;
 
 .Profile__card{
     background-color: var(--card-bg);
@@ -61,6 +62,7 @@
     grid-template-columns: 1fr 1fr;
     grid-gap: 1.5rem;
     padding-block-end: 2.5rem;
+    margin-left: calc(3.5rem + 175px);
 }
 .Profile__options{
     display: flex;
@@ -82,6 +84,9 @@
 }
 .Profile__username{
     grid-area: username;
+    &--mobile{
+        display: none;
+    }
 }
 .Profile__firstname{
     grid-area: firstname;
@@ -122,6 +127,7 @@
     align-items: center;
     gap: 3rem;
     padding-block-end: 2.5rem;
+    margin-left: calc(3.5rem + 190px);
 }
 .skeleton-load-profileContainer{
     border-radius: 5px;
@@ -142,5 +148,75 @@
         text-align: center;
         font-size: 1rem;
         margin-bottom: .5rem;
+    }
+}
+
+@include breakpoint(s){
+    .Profile__card{
+        height: auto;
+    }
+    .Profile__aside{
+        float:none;
+        min-height: auto;
+        margin-block: 1.25rem;
+        padding: 0;
+    }
+    .Profile__picture{
+        width: 100px;
+    }
+    .Profile__detailsgrid{
+        grid-template-columns: 1fr;
+        grid-template-areas: "email"
+                             "firstname"
+                             "lastname";
+        margin-left: 0;
+    }
+    .Profile__statistics{
+        margin-left: 15px;
+    }
+    .Profile__username{
+        display: none;
+        &--mobile{
+            display: block;
+        }
+    }
+    .Profile__activity{
+        margin: 0;
+        width: 100%;
+    }
+    .Profile__picture{
+        width: 85px;
+    }
+    .Profile__posts , .Profile__replies{
+        min-height: 20rem;
+    }
+    .Profile__pictureContainer{
+        width: 75%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+}
+@include breakpoint(xs){
+    .Profile__picture{
+        width: 75px;
+    }
+}
+@include breakpoint('2xs'){
+    .Profile__statistics{
+        flex-direction: column;
+        margin-left: 0;
+        gap: 1.5rem;
+    }
+    .Profile__aside{
+        align-items: flex-start;
+    }
+    .Profile__pictureContainer{
+        width: 100%;
+        flex-direction: column;
+        gap: .25rem;
+    }
+    .Profile__activity{
+        display: none;
     }
 }

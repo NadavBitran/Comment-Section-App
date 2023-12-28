@@ -1,3 +1,5 @@
+@use "../../Util/breakpoints" as *;
+
 .InfoItem{
     width: 100%;
     background-color: var(--card-bg);
@@ -20,10 +22,19 @@
     }
     &__desc{
         text-align: start;
-        line-height: 1.25rem;
     }
     &__icon{
         align-self: center;
         width: 80px;
+
+        @include breakpoint(xs){
+            width: 65px;
+        }
+        @include breakpoint('2xs'){
+            width: 55px;
+        }
+        @include breakpoint('3xs'){
+            width: 45px;
+        }
     }
 }

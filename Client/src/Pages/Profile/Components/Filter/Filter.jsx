@@ -10,7 +10,7 @@ function Filter({ search, option, setSortChange, setSearchChange, setOrderChange
     useEffect(() => {
         if(search === "" && debouncedSearch === "") return
 
-        const timer = setTimeout(() => {setSearchChange(debouncedSearch)} , 1000)
+        const timer = setTimeout(() => {setSearchChange(debouncedSearch)} , 950)
 
         return () => clearTimeout(timer)
 
@@ -24,6 +24,7 @@ function Filter({ search, option, setSortChange, setSearchChange, setOrderChange
         className={"Search"}
         type="text"
         defaultValue={search}
+        placeholder={"search..."}
         onChange={(event) => setDebouncedSearch(event.target.value)}
       />
       <div className={"Sort"}>

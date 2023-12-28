@@ -22,7 +22,7 @@ describe("Home Render" , () => {
                     <Home />
                 </Router>)
         
-                const titleElement = screen.queryByText('Interactive Comment Section Demo')
+                const titleElement = screen.queryByText('Interactive Comment Section')
                 const continueLink = screen.queryByText(`Continue as ${TEST_USER.username}`)
         
                 expect(titleElement).toBeInTheDocument()
@@ -48,7 +48,7 @@ describe("Home Render" , () => {
                     <Home />
                 </Router>)
         
-                const titleElement = screen.queryByText('Interactive Comment Section Demo')
+                const titleElement = screen.queryByText('Interactive Comment Section')
                 const continueLink = screen.queryByText(`Continue as ${TEST_USER.username}`)
         
                 expect(titleElement).toBeInTheDocument()

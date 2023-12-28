@@ -29,7 +29,7 @@ describe("Contact Tests" , () => {
         axiosMock.onPost(END_POINT_EMAIL_POST()).reply(() => {
             return new Promise((resolve) => {
               setTimeout(() => {
-                resolve([200, { message: 'Success' }]);
+                resolve([200, { list: 'Success' }]);
               }, 1000);
             });
           });
@@ -101,7 +101,7 @@ describe("Contact Tests" , () => {
                 expect(screen.getByTestId("errorLabel")).not.toHaveClass("show")
                 expect(screen.queryByTestId("Spinner")).toBeInTheDocument()
 
-                await waitFor(() => expect(screen.queryByText(/Thank you!/i)).toBeInTheDocument())
+                await waitFor(() => expect(screen.queryAllByText(/Mocked InfoCard/i)).toHaveLength(4))
 
                 expect(screen.queryByTestId("Spinner")).not.toBeInTheDocument()
             })

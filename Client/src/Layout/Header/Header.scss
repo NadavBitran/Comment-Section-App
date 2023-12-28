@@ -3,6 +3,7 @@
 
 header{
     height: 70px;
+    position: relative;
 
     display: flex;
     align-items: center;
@@ -37,9 +38,8 @@ ul{
     display: flex;
     align-items: center;
     gap: 2rem;
+    height: 50%;
     img{
-        width: 35px;
-        height: 35px;
         border-radius: 50%;
     }
 
@@ -48,15 +48,36 @@ ul{
         right: 0;
         margin-right: 2rem;
     }
+    @include breakpoint(xs){
+        position: relative;
+        display: block;
+        width: 100%;
+        margin: 0;
+    }
 }
 .userDetails{
     display: flex;
     flex-direction: row;
     align-items: center;
     gap: 1rem;
+    .userImage{
+        height: 35px;
+        width: 35px;
+    }
 
         &:hover{
         cursor: pointer;
+        }
+    @include breakpoint(xs){
+        justify-content: center;
+    }
+    @include breakpoint('2xs'){
+        .userImage{
+            height: 30px;
+            width: 30px;
+        }
+
+        gap: .75rem;
     }
 }
 
@@ -175,7 +196,6 @@ ul{
         text-decoration: none;
         h3{
             color: var(--title-clr);
-            font-size: 1.4rem;
         }
     }
 }
@@ -190,6 +210,26 @@ ul{
         cursor: pointer;
     }
     &__image{
-        width: 20px;
+        height: 35px;
+        width: 35px;
+        @include breakpoint('2xs'){
+            height: 30px;
+            width: 30px;
+        }
+    }
+
+    @include breakpoint(xs){
+        position: absolute;
+        right: 0;
+        &__title{
+            display: none;
+        }
     }
 }
+
+.logoutBtn , .loginBtn{
+    @include breakpoint(xs){
+        display: none;
+    }
+}
+

@@ -182,7 +182,7 @@ function Profile(){
                             </div>
                             <div className={"Profile__container Profile__postAmount"}>
                                 <h2>Posts Written</h2>
-                                <p>{profileUserPostsLength}</p>
+                                <p data-cy={"postsWritten"}>{profileUserPostsLength}</p>
                             </div>
                             <div className={"Profile__container Profile__replyAmount"}>
                                 <h2>Replies Written</h2>
@@ -503,7 +503,10 @@ const profilePostsJSX = profileUserPosts ? (
         <div className={"Wrapper"}>
             <div className={"Profile__card"}>
                 <aside className={"Profile__aside"}>
-                            <img className={"Profile__picture"} src={profileUser.image}/>
+                            <div className={"Profile__pictureContainer"}>
+                              <img className={"Profile__picture"} src={profileUser.image}/>
+                              <h1 className={"Profile__username--mobile"}>{profileUser.username}</h1>
+                            </div>
                             <nav className={"Profile__navbar"}>
                                 <ul>
                                     <li onClick={() => moveProfileSection(PROFILE_SECTION.PROFILE_DETAILS)}><button>Profile Details</button></li>

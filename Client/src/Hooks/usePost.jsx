@@ -33,6 +33,7 @@ import { deleteConversation ,
 
 import moment from 'moment'
 
+import { LIMIT } from '../Pages/CommentSection/Components/PostList/constants/constants.js';
 // ---------------------------
 
 // ---------------------------
@@ -46,9 +47,9 @@ function usePostSource(){
     const postsOffset = useRef(0)
     const currentPostsLength = useRef(0)
     const totalPostsLength = useRef(0)
+    const isMounted = useRef(true)
 
     useEffect(() => {
-
         const initialSocket = () => {
             const ioSocket = io(URL)
             setPostsSocket(ioSocket)
@@ -58,19 +59,23 @@ function usePostSource(){
 
             if(!response) setIsError(true)
         }
-
-        preformFirstPageLoad()
-        initialSocket()
         
+        if(isMounted.current){
+            preformFirstPageLoad()
+            initialSocket()
+        }
 
+        
         return () => { 
             if(postsSocket !== null) 
             {   
                 console.log("Disconnected!")
                 postsSocket.disconnect() 
             }
+            isMounted.current = false
         }
     } , [])
+
 
 
     useEffect(() => {
@@ -141,9 +146,11 @@ function usePostSource(){
 
     } , [postsSocket])
 
-    const loadNewPage = useCallback(async () => {
+    const loadNewPage = useCallback(async() => {
         try{
-            let response = await fetchConversations(pageNumber + 1 , 10 , postsOffset.current)
+            let response = await fetchConversations(pageNumber + 1 , LIMIT , postsOffset.current)
+
+
             let data = response.data.list.reverse()
             let postlength = response.data.listLength
 
@@ -160,7 +167,7 @@ function usePostSource(){
                 setPosts(() => [...data])
                 setHasMorePosts(data.length < postlength)
                 currentPostsLength.current = data.length
-            }
+            }   
             else 
             {
                 setPosts((currPosts) => [...data , ...currPosts])
@@ -168,14 +175,15 @@ function usePostSource(){
                 currentPostsLength.current+=data.length
             }
             totalPostsLength.current = postlength
-            setPageNumber(pageNumber + 1);
+            setPageNumber(pageNumber + 1)
 
             return true
         }
         catch(error){
             return false
         }
-    } , [pageNumber])
+    } , [pageNumber , posts] )
+
 
     const setNewPost = useCallback(async (writer , content) => {
         const newPost = {
@@ -243,7 +251,7 @@ function usePostSource(){
             return 'Failed'
         }
 
-    } , [])
+    } , [posts])
 
     const setExistingReplyLikes = useCallback(async (converationId , replyId , operationType) => {
         try{
@@ -273,7 +281,7 @@ function usePostSource(){
         catch(error){
             return 'Failed'
         }
-    } , [])
+    } , [posts])
 
     const setRemovePost = useCallback(async (converationId) => {
         await deleteConversation(converationId)

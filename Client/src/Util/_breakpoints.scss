@@ -1,7 +1,9 @@
 $breakpoints-max: (
     'm' : 1300px,
-    's' : 850px,
-    'xs' : 500px
+    's' : 1000px,
+    'xs' : 550px,
+    '2xs' : 420px,
+    '3xs' : 320px
 );
 
 @mixin breakpoint ($breakpoint-size) {
